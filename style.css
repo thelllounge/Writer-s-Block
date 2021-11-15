@@ -51,8 +51,12 @@ p {
 button {
     padding: 20px 15px;
     background-color: rgb(159, 186, 196);
-    border-radius: 100%;
+    border-radius: 25px;
     font-weight: bolder;
     align-self: center;
     margin: 20px;
+}
+
+label {
+    color: white;
 }

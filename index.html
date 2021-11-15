@@ -26,11 +26,11 @@
                 <input type="radio" id="genre_yes" name="genre">
                 <label for="genre_no">No</label>
                 <input type="radio" id="genre_no" name="genre">
-            <p>Protagonist:</p>
-                <label for="protag_yes">Yes</label>
-                <input type="radio" id="protag_yes" name="protag">
-                <label for="protag_no">No</label>
-                <input type="radio" id="protag_no" name="protag">
+            <p>Time:</p>
+                <label for="time_yes">Yes</label>
+                <input type="radio" id="time_yes" name="time">
+                <label for="time_no">No</label>
+                <input type="radio" id="time_no" name="time">
             <p>Location:</p>
                 <label for="location_yes">Yes</label>
                 <input type="radio" id="location_yes" name="location">
@@ -38,15 +38,9 @@
                 <input type="radio" id="location_no" name="location">
                 <br>
             </form>
- <!--Experiments start here-->           
-        <form action="prompt.html" method="GET">
-            <p>Practice:</p>
-                <input type=text id="practice" name="practice">
-                <br>
-        </form>
-<!--Experiments end here--> 
-        <a href="prompt.html"><button>Get your prompt!</button></a>
+        <a href="prompt.html" id="get_prompt"><button>Get your prompt!</button></a>
+        <button id="hello_btn">Hello</button>
         </div>
-    
+        <script src="make_prompt.js"></script>
 </body>
 </html>
