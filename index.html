@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Writer's Block Breaker</title>
+    <h1>Writer's Block Breaker</h1>
+</head>
+<body>
+    <div class="intro">
+        <p>
+            Have you ever had trouble trying to think of the next thing to write?
+        </p>
+        </break>
+            <p>Can't think of anything?</p>
+        </break>
+            <p>Need a distraction from your actual writing work to reset your brain?</p>
+        </break>
+            <p>Let's randomize a scene for you!</p>
+        </p>
+    </div>
+    <div id=input>
+        <h2>What would you like us to randomize?</h2>
+         <form action="prompt.html" method="GET">
+            <p>Genre:</p>
+                <label for="genre_yes">Yes</label>
+                <input type="radio" id="genre_yes" name="genre">
+                <label for="genre_no">No</label>
+                <input type="radio" id="genre_no" name="genre">
+            <p>Protagonist:</p>
+                <label for="protag_yes">Yes</label>
+                <input type="radio" id="protag_yes" name="protag">
+                <label for="protag_no">No</label>
+                <input type="radio" id="protag_no" name="protag">
+            <p>Location:</p>
+                <label for="location_yes">Yes</label>
+                <input type="radio" id="location_yes" name="location">
+                <label for="location_no">No</label>
+                <input type="radio" id="location_no" name="location">
+                <br>
+            </form>
+ <!--Experiments start here-->           
+        <form action="prompt.html" method="GET">
+            <p>Practice:</p>
+                <input type=text id="practice" name="practice">
+                <br>
+        </form>
+<!--Experiments end here--> 
+        <a href="prompt.html"><button>Get your prompt!</button></a>
+        </div>
+    
+</body>
+</html>

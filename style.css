@@ -1,0 +1,58 @@
+body {
+    background-color: rgb(91, 84, 148);
+    display: grid;
+    grid-template-columns: 25% auto 25%;
+    grid-template-rows: 50px 1fr 2fr;
+    grid-row-gap: 10px;
+}
+
+head {
+    display: grid;
+}
+
+h1 {
+    text-align: center;
+    font-family: fantasy;
+    letter-spacing: 2px;
+    color: rgb(241, 241, 221);
+    grid-column-start: 2;
+    grid-row-start: 1;   
+}
+h2 {
+    color: rgb(241, 241, 221);
+}
+.intro {
+    background-color: rgb(35, 14, 56);
+    border-radius: 20px;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    align-self: center;
+}
+#input {
+    background-color: rgb(35, 14, 56);
+    border-radius: 20px;
+    grid-area: 3 / 2;
+    text-align:center;
+}
+#prompt {
+    background-color: rgb(35, 14, 56);
+    border-radius: 20px;
+    text-align:center;
+    grid-area: 2 / 2;
+}
+
+p {
+    font-size: 18pt;
+    font-family: sans-serif;
+    text-align: center;
+    color: rgb(241, 241, 221);
+}
+
+button {
+    padding: 20px 15px;
+    background-color: rgb(159, 186, 196);
+    border-radius: 100%;
+    font-weight: bolder;
+    align-self: center;
+    margin: 20px;
+}
