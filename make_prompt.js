@@ -1,13 +1,7 @@
-document.onload = function(){
-
-    fetch('prompt.json')
-        .then(Response => Response.json())
-        .then(data => console.log(data));
-
-};
-    
 //it looks like an easy was to affect one page from another is using jquery and ajax so I need to learn that.
-
+fetch('prompt.json')
+.then(Response => Response.json())
+.then(data => console.log(data));
 
 
 
