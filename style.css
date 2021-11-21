@@ -1,5 +1,6 @@
 body {
-    background-color: rgb(91, 84, 148);
+    background-color: rgb(86, 83, 115);
+    margin: 0px;
 }
 
 h1 {
@@ -12,6 +13,7 @@ h1 {
 div {
     background-color: rgb(35, 14, 56);
     border-radius: 20px;
+    margin: 0% 10%;
 }
 
 .intro, .prompt, .aboutMeKinda{
@@ -42,4 +44,22 @@ button {
     font-size: 1em;
     font-family: monospace;
     padding: 0px;
+}
+
+a, a:visited {
+    color: rgb(129, 167, 168);
+}
+
+
+@media screen and (max-width: 480px) { 
+    div { 
+        margin: 0px;  
+        border-radius: 0px;
+    }
+    p {
+        font-size: 16px ;
+    }
+    h1 {
+        font-size: 20px;
+    }
 }
