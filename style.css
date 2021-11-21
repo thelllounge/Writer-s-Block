@@ -63,3 +63,9 @@ a, a:visited {
         font-size: 20px;
     }
 }
+
+@media screen and (max-width: 680px) { 
+
+    .intro, .prompt, .aboutMeKinda{
+        padding: 10px 5%;
+    }
