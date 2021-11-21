@@ -3,47 +3,28 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Writer's Block Breaker</title>
-    <h1>Writer's Block Breaker</h1>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+    <title>Randomized Writing Prompts</title>
+    <h1>Randomized Writing Prompts</h1>
 </head>
 <body>
     <div class="intro">
         <p>
-            Have you ever had trouble trying to think of the next thing to write?
+        Have you ever had trouble trying to think of the next thing to write?
+        </br></br>
+        Can't think of anything?
+        </br></br>
+        Need a distraction from your current WIP to reset your brain?
+        </br></br>
+        Let's randomize something for you!
         </p>
-        </break>
-            <p>Can't think of anything?</p>
-        </break>
-            <p>Need a distraction from your actual writing work to reset your brain?</p>
-        </break>
-            <p>Let's randomize a scene for you!</p>
-        </p>
-    </div>
-    <div id=input>
-        <h2>What would you like us to randomize?</h2>
-         <form action="prompt.html" method="GET">
-            <p>Genre:</p>
-                <label for="genre_yes">Yes</label>
-                <input type="radio" id="genre_yes" name="genre">
-                <label for="genre_no">No</label>
-                <input type="radio" id="genre_no" name="genre">
-            <p>Time:</p>
-                <label for="time_yes">Yes</label>
-                <input type="radio" id="time_yes" name="time">
-                <label for="time_no">No</label>
-                <input type="radio" id="time_no" name="time">
-            <p>Location:</p>
-                <label for="location_yes">Yes</label>
-                <input type="radio" id="location_yes" name="location">
-                <label for="location_no">No</label>
-                <input type="radio" id="location_no" name="location">
-                <br>
-            </form>
         <button id="getPrompt">Get your prompt!</button>
-        </div>
-        <div id="prompt">
+    </div>
+    <div id="prompt">
             
-        </div>
+    </div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.1/papaparse.min.js"></script>
         <script src="make_prompt.js"></script>
 </body>

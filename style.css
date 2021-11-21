@@ -4,11 +4,8 @@ body {
 
 h1 {
     text-align: center;
-    font-family: fantasy;
+    font-family: 'Orbitron', sans-serif;
     letter-spacing: 2px;
-    color: rgb(241, 241, 221);
-}
-h2 {
     color: rgb(241, 241, 221);
 }
 
@@ -16,25 +13,27 @@ div {
     background-color: rgb(35, 14, 56);
     border-radius: 20px;
 }
-.intro {
+
+.intro, .prompt {
     align-self: center;
+    text-align: center;
+    
 }
-#input {
-    text-align:center;
-}
+
 
 p {
     font-size: 18pt;
-    font-family: sans-serif;
+    font-family: monospace;
     text-align: center;
     color: rgb(241, 241, 221);
+    padding: 20px 100px;
 }
 
 button {
-    padding: 20px 15px;
+    padding: 15px 15px;
     background-color: rgb(159, 186, 196);
-    border-radius: 25px;
-    font-weight: bolder;
+    border-radius: 10px;
+    font-family: 'Orbitron', sans-serif;
     align-self: center;
     margin: 20px;
 }
