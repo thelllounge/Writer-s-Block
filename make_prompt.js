@@ -1,35 +1,20 @@
+/* a variety of variables */
 var promptData;
 var genreData = [];
 var settingData = [];
 var timeData = [];
 var mainCharacterData = [];
 var genreURL = [];
+var conflictData = [];
 
+/* loading the information from my Google Sheets page and putting them into the above arrays.
 
-// window.onload = function(){
-// fetch('prompt.json')
-// .then(Response => Response.json())
-// .then(data => document.getElementById('get_prompt').onclick = function(){
-//     prompt.innerHTML = `<p>You should write a story in ${data.Setting[2]}</p>`
-// });
-
-// };
-
-// const prompt = document.getElementById("prompt");
-
-document.getElementById('getPrompt').onclick = function(){
-    prompt.innerHTML = `<p>You should write a story </p>`
-};
-
-/* Stuff I was messing with on replit updated with these IDs*/
-
-
+This allows me to access each list by itself and not have any undefined calls as I can call them by list length later.*/
 Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vT3pJgyMkUFc6wet1PPnyJ4AquHwmvP0NYb6rx5z1N59TngIUnqP9N5ZGLJpIGiQlF3ItQwtn5kEdYc/pub?gid=0&single=true&output=csv', {
   download: true,
   header: true,
   error: undefined,
   complete: function(results) {
-    console.log(results)
     promptData = results;
         /*make the list of genres*/
         for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Genre !== ""){genreData.push(promptData.data[i].Genre)}}
@@ -41,6 +26,8 @@ Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vT3pJgyMkUFc6wet1PPn
         for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Time !== ""){timeData.push(promptData.data[i].Time)}}
         /*make the list of main characters*/
         for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Main_Character !== ""){mainCharacterData.push(promptData.data[i].Main_Character)}}
+        /*make the list of conflicts*/
+        for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Conflict !== ""){conflictData.push(promptData.data[i].Conflict)}}
   }
 })
 
@@ -50,5 +37,5 @@ let promptPara = document.getElementById('prompt');
 promptButton.onclick = function(){
   let genreNumber = Math.floor(Math.random()*genreData.length)
 
-  promptPara.innerHTML =  `<p>Your main character should be ${mainCharacterData[Math.floor(Math.random()*mainCharacterData.length)]} who is in ${settingData[Math.floor(Math.random()*settingData.length)]} during ${timeData[Math.floor(Math.random()*timeData.length)]}. It should be <a href="${genreURL[genreNumber]}" target="_blank">${genreData[genreNumber]}</a> story.</p>`;
+  promptPara.innerHTML =  `<p>Your main character should be ${mainCharacterData[Math.floor(Math.random()*mainCharacterData.length)]}. <br><br> They should be ${conflictData[Math.floor(Math.random()*conflictData.length)]}. <br><br> It should be set ${settingData[Math.floor(Math.random()*settingData.length)]} ${timeData[Math.floor(Math.random()*timeData.length)]}. <br><br> It should be <a href="${genreURL[genreNumber]}" target="_blank">${genreData[genreNumber]}</a> story.</p>`;
 }
