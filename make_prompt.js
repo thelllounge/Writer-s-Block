@@ -6,6 +6,7 @@ var timeData = [];
 var mainCharacterData = [];
 var genreURL = [];
 var conflictData = [];
+var calculateTotal
 
 /* loading the information from my Google Sheets page and putting them into the above arrays.
 
@@ -28,7 +29,14 @@ Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vT3pJgyMkUFc6wet1PPn
         for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Main_Character !== ""){mainCharacterData.push(promptData.data[i].Main_Character)}}
         /*make the list of conflicts*/
         for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Conflict !== ""){conflictData.push(promptData.data[i].Conflict)}}
-  }
+    //create total prompt count variable
+    
+    calculateTotal = mainCharacterData.length * conflictData.length * settingData.length * timeData.length * genreData.length;
+
+    //Total prompt possibilities
+    let subHeading = document.getElementById('totalPossibilites');
+
+    document.onload = subHeading.innerHTML = 'There are currently ' + new Intl.NumberFormat().format(calculateTotal) + ' possible prompts!';}
 })
 
 let promptButton = document.getElementById('getPrompt'); 
