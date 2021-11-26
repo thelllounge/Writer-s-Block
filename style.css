@@ -10,6 +10,13 @@ h1, h4 {
     color: rgb(241, 241, 221);
 }
 
+label {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    color: rgb(241, 241, 221);
+    font-size: .85em;
+}
+
 div {
     background-color: rgb(35, 14, 56);
     border-radius: 20px;
