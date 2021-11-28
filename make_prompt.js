@@ -94,6 +94,44 @@ $(seasonalBox).change(function() {
     document.onload = subHeading.innerHTML = 'There are currently ' + new Intl.NumberFormat().format(calculateTotal) + ' possible prompts!';}
 })
  } else {
-  
- }
-});
+    alert('unseasoned it is')
+
+    genreData = [];
+    settingData = [];
+    timeData = [];
+    mainCharacterData = [];
+    genreURL = [];
+    conflictData = [];
+
+    Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vT3pJgyMkUFc6wet1PPnyJ4AquHwmvP0NYb6rx5z1N59TngIUnqP9N5ZGLJpIGiQlF3ItQwtn5kEdYc/pub?gid=0&single=true&output=csv', {
+      download: true,
+      header: true,
+      error: undefined,
+      complete: function(results) {
+        promptData = results;
+            /*make the list of genres*/
+            for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Genre !== ""){genreData.push(promptData.data[i].Genre)}}
+            /*make the list of genres urls*/
+            for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Genre_URL !== ""){genreURL.push(promptData.data[i].Genre_URL)}}
+            /*make the list of settings*/
+            for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Setting !== ""){settingData.push(promptData.data[i].Setting)}}
+            /*make the list of time*/
+            for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Time !== ""){timeData.push(promptData.data[i].Time)}}
+            /*make the list of main characters*/
+            for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Main_Character !== ""){mainCharacterData.push(promptData.data[i].Main_Character)}}
+            /*make the list of conflicts*/
+            for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Conflict !== ""){conflictData.push(promptData.data[i].Conflict)}}
+        //create total prompt count variable
+        
+        calculateTotal = mainCharacterData.length * conflictData.length * settingData.length * timeData.length * genreData.length;
+    
+        //Total prompt possibilities
+        let subHeading = document.getElementById('totalPossibilites');
+    
+        document.onload = subHeading.innerHTML = 'There are currently ' + new Intl.NumberFormat().format(calculateTotal) + ' possible prompts!';}
+    })
+
+          
+}
+
+  });
