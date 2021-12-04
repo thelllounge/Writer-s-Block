@@ -5,6 +5,7 @@ body {
     --main-accent-color: rgb(159, 186, 196);
     background-color: var(--main-background-color);
     margin: 0px;
+    transition: 500ms;
 }
 
 body.seasonal{
@@ -12,6 +13,7 @@ body.seasonal{
     --main-text-color: rgb(202, 255, 228);
     --main-div-color: rgb(65, 13, 13);
     --main-accent-color: rgb(122, 238, 253);
+    transition: 500ms;
 }
 
 h1, h4 {
