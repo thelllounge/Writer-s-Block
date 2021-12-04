@@ -63,6 +63,10 @@ let seasonalBox = document.getElementById('seasonal');
 
 $(seasonalBox).change(function() {
     if(this.checked) {
+
+//add seasonal class to the body to change all color variables to seasonal options
+      document.body.classList.add('seasonal');
+
  //add seasonal options to the prompt arrays   
       Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vT3pJgyMkUFc6wet1PPnyJ4AquHwmvP0NYb6rx5z1N59TngIUnqP9N5ZGLJpIGiQlF3ItQwtn5kEdYc/pub?gid=22694995&single=true&output=csv', {
   download: true,
@@ -94,6 +98,9 @@ $(seasonalBox).change(function() {
     document.onload = subHeading.innerHTML = 'There are currently ' + new Intl.NumberFormat().format(calculateTotal) + ' possible prompts!';}
 })
  } else {
+//remove seasonal class to set back to normal colors
+  document.body.classList.remove('seasonal');
+
 //resets the arrays to empty
     genreData = [];
     settingData = [];
