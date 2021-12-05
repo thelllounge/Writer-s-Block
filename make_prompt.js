@@ -58,14 +58,14 @@ promptButton.onclick = function(){
 
 //necessary variables
 let seasonalBox = document.getElementById('seasonal');
-
+let body = document.getElementById('body');
 //adding seasonal options
 
 $(seasonalBox).change(function() {
     if(this.checked) {
 
 //add seasonal class to the body to change all color variables to seasonal options
-      document.body.classList.add('seasonal');
+      body.classList.add('seasonal');
 
  //add seasonal options to the prompt arrays   
       Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vT3pJgyMkUFc6wet1PPnyJ4AquHwmvP0NYb6rx5z1N59TngIUnqP9N5ZGLJpIGiQlF3ItQwtn5kEdYc/pub?gid=22694995&single=true&output=csv', {
