@@ -68,7 +68,7 @@ $(seasonalBox).change(function() {
       body.classList.add('seasonal');
 
  //add seasonal options to the prompt arrays   
-      Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vT3pJgyMkUFc6wet1PPnyJ4AquHwmvP0NYb6rx5z1N59TngIUnqP9N5ZGLJpIGiQlF3ItQwtn5kEdYc/pub?gid=874624363&single=true&output=csv', {
+      Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vT3pJgyMkUFc6wet1PPnyJ4AquHwmvP0NYb6rx5z1N59TngIUnqP9N5ZGLJpIGiQlF3ItQwtn5kEdYc/pub?gid=990769919&single=true&output=csv', {
   download: true,
   header: true,
   error: undefined,

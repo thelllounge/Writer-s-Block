@@ -9,10 +9,10 @@ body {
 }
 
 body.seasonal{
-    --main-background-color: rgb(24, 0, 51);
-    --main-text-color: rgb(251, 255, 193);
-    --main-div-color: rgb(0, 21, 92);
-    --main-accent-color: rgb(103, 255, 57);
+    --main-background-color: rgb(110, 62, 90);
+    --main-text-color: rgb(255, 190, 190);
+    --main-div-color: rgb(54, 0, 0);
+    --main-accent-color: rgb(177, 55, 146);
     transition: 500ms;
 }
 
