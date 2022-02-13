@@ -50,6 +50,22 @@ let promptButton = document.getElementById('getPrompt');
 let promptPara = document.getElementById('prompt'); 
 
 
+/* copy text button gotten from https://www.arclab.com/en/kb/htmlcss/how-to-copy-text-from-html-element-to-clipboard.html*/
+function copyPrompt(){
+  /* Get the text field */
+  var copyText = document.createRange();
+
+  copyText.selectNode(document.getElementById('promptText'));
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(copyText);
+  document.execCommand('copy');
+  window.getSelection().removeAllRanges();
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
+
+
 //prompt button creating randomize prompt by accessing the array variables pulled from the spreadsheet
 promptButton.onclick = function(){
   let genreNumber = Math.floor(Math.random()*genreData.length)
@@ -58,7 +74,7 @@ promptButton.onclick = function(){
   
   <br>
   
-  <button id="copyText">Copy to clipboard!</button>`;
+  <button id="copyPrompt" onclick="copyPrompt()">Copy to clipboard!</button>`;
 }
 
 //Seasonal options
@@ -148,5 +164,7 @@ $(seasonalBox).change(function() {
         document.onload = subHeading.innerHTML = 'There are currently ' + new Intl.NumberFormat().format(calculateTotal) + ' possible prompts!';}
     })      
 }
+
+
 
   });
