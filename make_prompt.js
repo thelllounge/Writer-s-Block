@@ -34,7 +34,7 @@ Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vT3pJgyMkUFc6wet1PPn
         for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Conflict !== ""){conflictData.push(promptData.data[i].Conflict)}}
     //create total prompt count variable
     
-    calculateTotal = mainCharacterData.length * goalData.length * settingData.length * timeData.length * genreData.length;
+    calculateTotal = mainCharacterData.length * goalData.length * settingData.length * timeData.length * genreData.length * conflictData.length;
 
     //Total prompt possibilities
     let subHeading = document.getElementById('totalPossibilites');
@@ -110,12 +110,12 @@ $(seasonalBox).change(function() {
         /*make the list of Goals*/
         for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Goal !== ""){goalData.push(promptData.data[i].Goal)}}
         /*make the list of conflicts*/
-        for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Goal !== ""){conflictData.push(promptData.data[i].Conflict)}}
+        for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Conflict !== ""){conflictData.push(promptData.data[i].Conflict)}}
   
 
     //create total prompt count variable
     
-    calculateTotal = mainCharacterData.length * goalData.length * settingData.length * timeData.length * genreData.length;
+    calculateTotal = mainCharacterData.length * goalData.length * settingData.length * timeData.length * genreData.length * conflictData.length;
 
     //Total prompt possibilities
     let subHeading = document.getElementById('totalPossibilites');
@@ -133,6 +133,7 @@ $(seasonalBox).change(function() {
     mainCharacterData = [];
     genreURL = [];
     goalData = [];
+    conflictData = [];
 
 
 //repopulates the arrays with the basic prompt data
@@ -154,9 +155,11 @@ $(seasonalBox).change(function() {
             for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Main_Character !== ""){mainCharacterData.push(promptData.data[i].Main_Character)}}
             /*make the list of Goals*/
             for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Goal !== ""){goalData.push(promptData.data[i].Goal)}}
+            /*make the list of conflicts*/
+            for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Conflict !== ""){conflictData.push(promptData.data[i].Conflict)}}
         //create total prompt count variable
         
-        calculateTotal = mainCharacterData.length * goalData.length * settingData.length * timeData.length * genreData.length;
+        calculateTotal = mainCharacterData.length * goalData.length * settingData.length * timeData.length * genreData.length * conflictData.length;
     
         //Total prompt possibilities
         let subHeading = document.getElementById('totalPossibilites');
