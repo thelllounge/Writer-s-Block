@@ -5,6 +5,7 @@ var settingData = [];
 var timeData = [];
 var mainCharacterData = [];
 var genreURL = [];
+var goalData = [];
 var conflictData = [];
 var calculateTotal
 
@@ -27,11 +28,13 @@ Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vT3pJgyMkUFc6wet1PPn
         for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Time !== ""){timeData.push(promptData.data[i].Time)}}
         /*make the list of main characters*/
         for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Main_Character !== ""){mainCharacterData.push(promptData.data[i].Main_Character)}}
+        /*make the list of goals*/
+        for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Goal !== ""){goalData.push(promptData.data[i].Goal)}}
         /*make the list of conflicts*/
         for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Conflict !== ""){conflictData.push(promptData.data[i].Conflict)}}
     //create total prompt count variable
     
-    calculateTotal = mainCharacterData.length * conflictData.length * settingData.length * timeData.length * genreData.length;
+    calculateTotal = mainCharacterData.length * goalData.length * settingData.length * timeData.length * genreData.length;
 
     //Total prompt possibilities
     let subHeading = document.getElementById('totalPossibilites');
@@ -51,7 +54,11 @@ let promptPara = document.getElementById('prompt');
 promptButton.onclick = function(){
   let genreNumber = Math.floor(Math.random()*genreData.length)
 
-  promptPara.innerHTML =  `<p>Your main character should be ${mainCharacterData[Math.floor(Math.random()*mainCharacterData.length)]}. <br><br> They should be ${conflictData[Math.floor(Math.random()*conflictData.length)]}. <br><br> It should be set ${settingData[Math.floor(Math.random()*settingData.length)]} ${timeData[Math.floor(Math.random()*timeData.length)]}. <br><br> It should be <a href="${genreURL[genreNumber]}" target="_blank">${genreData[genreNumber]}</a> story.</p>`;
+  promptPara.innerHTML =  `<p id="promptText">Your main character should be ${mainCharacterData[Math.floor(Math.random()*mainCharacterData.length)]}. <br><br> They should be ${goalData[Math.floor(Math.random()*goalData.length)]} but ${conflictData[Math.floor(Math.random()*conflictData.length)]}. <br><br> It should be set ${settingData[Math.floor(Math.random()*settingData.length)]} ${timeData[Math.floor(Math.random()*timeData.length)]}. <br><br> It should be <a href="${genreURL[genreNumber]}" target="_blank">${genreData[genreNumber]}</a> story.</p>
+  
+  <br>
+  
+  <button id="copyText">Copy to clipboard!</button>`;
 }
 
 //Seasonal options
@@ -84,13 +91,15 @@ $(seasonalBox).change(function() {
         for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Time !== ""){timeData.push(promptData.data[i].Time)}}
         /*make the list of main characters*/
         for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Main_Character !== ""){mainCharacterData.push(promptData.data[i].Main_Character)}}
+        /*make the list of Goals*/
+        for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Goal !== ""){goalData.push(promptData.data[i].Goal)}}
         /*make the list of conflicts*/
-        for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Conflict !== ""){conflictData.push(promptData.data[i].Conflict)}}
+        for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Goal !== ""){conflictData.push(promptData.data[i].Conflict)}}
   
 
     //create total prompt count variable
     
-    calculateTotal = mainCharacterData.length * conflictData.length * settingData.length * timeData.length * genreData.length;
+    calculateTotal = mainCharacterData.length * goalData.length * settingData.length * timeData.length * genreData.length;
 
     //Total prompt possibilities
     let subHeading = document.getElementById('totalPossibilites');
@@ -107,7 +116,7 @@ $(seasonalBox).change(function() {
     timeData = [];
     mainCharacterData = [];
     genreURL = [];
-    conflictData = [];
+    goalData = [];
 
 
 //repopulates the arrays with the basic prompt data
@@ -127,19 +136,17 @@ $(seasonalBox).change(function() {
             for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Time !== ""){timeData.push(promptData.data[i].Time)}}
             /*make the list of main characters*/
             for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Main_Character !== ""){mainCharacterData.push(promptData.data[i].Main_Character)}}
-            /*make the list of conflicts*/
-            for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Conflict !== ""){conflictData.push(promptData.data[i].Conflict)}}
+            /*make the list of Goals*/
+            for(i = 0; i<promptData.data.length; i++){if(promptData.data[i].Goal !== ""){goalData.push(promptData.data[i].Goal)}}
         //create total prompt count variable
         
-        calculateTotal = mainCharacterData.length * conflictData.length * settingData.length * timeData.length * genreData.length;
+        calculateTotal = mainCharacterData.length * goalData.length * settingData.length * timeData.length * genreData.length;
     
         //Total prompt possibilities
         let subHeading = document.getElementById('totalPossibilites');
     
         document.onload = subHeading.innerHTML = 'There are currently ' + new Intl.NumberFormat().format(calculateTotal) + ' possible prompts!';}
-    })
-
-          
+    })      
 }
 
   });
