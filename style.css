@@ -6,6 +6,10 @@ body {
     background-color: var(--main-background-color);
     margin: 0px;
     transition: 500ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 body.seasonal{
@@ -41,7 +45,6 @@ div {
     text-align: center;
     padding: 10px 10%;
 }
-
 
 p {
     font-size: 18pt;

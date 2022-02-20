@@ -60,9 +60,8 @@ function copyPrompt(){
   window.getSelection().addRange(copyText);
   document.execCommand('copy');
   window.getSelection().removeAllRanges();
-
-  /* Alert the copied text */
-  alert("Copied the text: " + copyText.value);
+  //update button text
+  document.getElementById('copyPrompt').innerHTML = 'Text copied!'
 }
 
 
