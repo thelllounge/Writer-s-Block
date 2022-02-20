@@ -61,7 +61,7 @@ button {
 }
 
 .information {
-    font-size: 1em;
+    font-size: 12px;
     font-family: monospace;
     padding: 0px;
     margin: 5px auto;
@@ -73,7 +73,7 @@ a, a:visited {
 }
 
 
-@media screen and (max-width: 480px) { 
+@media screen and (max-width: 500px) { 
     div { 
         margin: 0px;  
         border-radius: 0px;
@@ -89,6 +89,6 @@ a, a:visited {
 @media screen and (max-width: 680px) { 
 
     .intro, .prompt, .aboutMeKinda{
-        padding: 10px 5%;
+        padding: 14px 5%;
     }
 }
