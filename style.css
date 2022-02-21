@@ -6,10 +6,8 @@ body {
     background-color: var(--main-background-color);
     margin: 0px;
     transition: 500ms;
-    display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 body.seasonal{
@@ -76,7 +74,7 @@ a, a:visited {
 }
 
 
-@media screen and (max-width: 500px) { 
+@media screen and (max-width: 550px) { 
     div { 
         margin: 0px;  
         border-radius: 0px;
