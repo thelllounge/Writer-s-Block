@@ -22,26 +22,27 @@
 <body>
     <div id="timer">
         <label for="select">Sprint duration:</label>
-        <select>
-            <option name="select" id="select">Select a sprint time</option>
-            <option value="one">1</option>
-            <option value="three">3</option>
-            <option value="five">5</option>
-            <option value="ten">10</option>
-            <option value="fifteen">15</option>
-            <option value="twenty">20</option>
+        <select name="select" id="select">
+            <option>Select a sprint time</option>
+            <option value="1">1</option>
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
         </select>
         <label for="rest">Rest duration:</label>
         <select>
             <option name="rest" id="rest">Select a rest time</option>
-            <option value="one">1</option>
-            <option value="three">3</option>
-            <option value="five">5</option>
-            <option value="ten">10</option>
-            <option value="fifteen">15</option>
-            <option value="twenty">20</option>
+            <option value="1">1</option>
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
         </select>
         <div id="timeDisplay"><p>0:00:00</p></div>
+        <button onclick="saveTime()">Let's start!</button>
     </div>
 
     <script type="text/javascript" src="sprint.js"></script>
