@@ -2,20 +2,20 @@
 let sprintSelect = document.getElementById("select");
 let restSelect = document.getElementById("rest");
 let startButton = document.getElementById("startButton");
-let pauseButton = document.getElementById("pauseButton");
+let resetButton = document.getElementById("resetButton");
 
 //Adding functions to actions
 sprintSelect.addEventListener("change", saveTime);
 restSelect.addEventListener("change", saveTime);
 
-startButton.addEventListener("click", startTimer);
-// pauseButton.addEventListener("click", pauseTheTimer);
+startButton.addEventListener("click", startPauseTimer);
+resetButton.addEventListener("click", resetEverything);
 
 //Needed variables to make the functions work
 let sprintTime = 0;
 let restTime = 0;
 
-let sprinting = false;
+let timerCountdown;
 
 
 //This makes sure that both a sprint time and a rest time are selected, and if not reminds people to select what's missing.
@@ -36,25 +36,26 @@ function saveTime(){
     }
 }
 
-function startTimer(){
+function startPauseTimer(){
     if(sprintSelect.value == "Select a sprint time" || document.getElementById("rest").value == "Select a rest time"){
         document.getElementById("timeDisplay").innerHTML = "<p>Please select both a sprint and rest time.</p>"
     }
 
-    const timerCountdown = setInterval(countDownSprint, 1000);
-    startButton.innerHTML = 'Pause';
-    
-    if(sprinting == true){
+    if(!timerCountdown){
+        timerCountdown = setInterval(countDownSprint, 1000);
+        startButton.innerHTML = "Pause";
+    }else{
         clearInterval(timerCountdown);
-        sprinting == false;
-        startButton.innerHTML = "Start"
+        timerCountdown = null;
+        startButton.innerHTML = "Start";
     }
-
-    sprinting = true;
-
 }
 
-
+function resetEverything(){
+    sprintSelect.value = "Select a sprint time"
+    restSelect.value = "Select a rest time"
+    document.getElementById("timeDisplay").innerHTML = "<p>Please select a sprint and a rest time.</p>"
+}
 
 function countDownSprint(){
     sprintTime--
