@@ -16,6 +16,7 @@ let sprintTime = 0;
 let restTime = 0;
 
 let timerCountdown;
+let sprinting = false;
 
 
 //This makes sure that both a sprint time and a rest time are selected, and if not reminds people to select what's missing.
@@ -44,6 +45,7 @@ function startPauseTimer(){
     if(!timerCountdown){
         timerCountdown = setInterval(countDownSprint, 1000);
         startButton.innerHTML = "Pause";
+        sprinting = true;
     }else{
         clearInterval(timerCountdown);
         timerCountdown = null;
@@ -59,5 +61,22 @@ function resetEverything(){
 
 function countDownSprint(){
     sprintTime--
-    document.getElementById("timeDisplay").innerHTML = `<p>00:${String(Math.floor(sprintTime / 60)).padStart(2, "0")}:${String(sprintTime % 60).padStart(2,"0")}</p>`;
+    restTime--
+
+    if(sprinting == true){
+        document.getElementById("timeDisplay").innerHTML = `<p>00:${String(Math.floor(sprintTime / 60)).padStart(2, "0")}:${String(sprintTime % 60).padStart(2,"0")}</p>`;
+    }else{
+        document.getElementById("timeDisplay").innerHTML = `<p>00:${String(Math.floor(restTime / 60)).padStart(2, "0")}:${String(restTime % 60).padStart(2,"0")}</p>`;
+    }
+    
+
+    if(restTime == -1 && sprinting == false){
+        sprinting = true;
+        sprintTime = Number(sprintSelect.value * 60);
+        document.getElementById("timeDisplay").innerHTML = `<p>00:${String(Math.floor(sprintTime / 60)).padStart(2, "0")}:${String(sprintTime % 60).padStart(2,"0")}</p>`;
+    }else if(sprintTime == -1 && sprinting == true){
+        sprinting = false;
+        restTime = Number(restSelect.value * 60);
+        document.getElementById("timeDisplay").innerHTML = `<p>00:${String(Math.floor(restTime / 60)).padStart(2, "0")}:${String(restTime % 60).padStart(2,"0")}</p>`;
+    }
 }
