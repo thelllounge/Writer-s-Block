@@ -1,0 +1,19 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#buttons{
+    display: flex;
+    justify-content: center;
+}
+
+#dropdownMenus{
+    display: flex;
+    justify-content: center;
+}
+
+p{
+    margin: 0
+}
