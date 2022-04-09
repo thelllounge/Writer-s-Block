@@ -3,6 +3,13 @@ let sprintSelect = document.getElementById("select");
 let restSelect = document.getElementById("rest");
 let startButton = document.getElementById("startButton");
 let resetButton = document.getElementById("resetButton");
+let accessibleCheck = document.getElementById("accessibleFlashing")
+
+// let timerDisplay = getElementById("timeDisplay").innerHTML;
+
+let beep = new Audio("BeepShort.wav");
+let restAlert = new Audio("rest Alert.wav");
+let sprintAlert = new Audio("SprintAlert.wav");
 
 //Adding functions to actions
 sprintSelect.addEventListener("change", saveTime);
@@ -40,22 +47,28 @@ function saveTime(){
 function startPauseTimer(){
     if(sprintSelect.value == "Select a sprint time" || document.getElementById("rest").value == "Select a rest time"){
         document.getElementById("timeDisplay").innerHTML = "<p>Please select both a sprint and rest time.</p>"
+    }else{
+        if(!timerCountdown){
+            timerCountdown = setInterval(countDownSprint, 1000);
+            startButton.innerHTML = "Pause";
+            sprinting = true;
+        }else{
+            clearInterval(timerCountdown);
+            timerCountdown = null;
+            startButton.innerHTML = "Start";
+        }
     }
 
-    if(!timerCountdown){
-        timerCountdown = setInterval(countDownSprint, 1000);
-        startButton.innerHTML = "Pause";
-        sprinting = true;
-    }else{
-        clearInterval(timerCountdown);
-        timerCountdown = null;
-        startButton.innerHTML = "Start";
+    if(startButton.innerHTML != "Start"){
+        sprintAlert.play();
     }
 }
 
 function resetEverything(){
     sprintSelect.value = "Select a sprint time"
     restSelect.value = "Select a rest time"
+    sprintTime = 0;
+    restTime = 0;
     document.getElementById("timeDisplay").innerHTML = "<p>Please select a sprint and a rest time.</p>"
 }
 
@@ -68,7 +81,15 @@ function countDownSprint(){
     }else{
         document.getElementById("timeDisplay").innerHTML = `<p>00:${String(Math.floor(restTime / 60)).padStart(2, "0")}:${String(restTime % 60).padStart(2,"0")}</p>`;
     }
-    
+
+    if(document.getElementById("timeDisplay").innerHTML == "<p>00:00:03</p>" || document.getElementById("timeDisplay").innerHTML == "<p>00:00:02</p>" || document.getElementById("timeDisplay").innerHTML == "<p>00:00:01</p>"){
+        beep.play();
+    }else if(document.getElementById("timeDisplay").innerHTML == "<p>00:00:00</p>" && sprinting){
+        restAlert.play();
+    }else if(document.getElementById("timeDisplay").innerHTML == "<p>00:00:00</p>" && !sprinting){
+        sprintAlert.play();
+    }
+
 
     if(restTime == -1 && sprinting == false){
         sprinting = true;
@@ -79,4 +100,12 @@ function countDownSprint(){
         restTime = Number(restSelect.value * 60);
         document.getElementById("timeDisplay").innerHTML = `<p>00:${String(Math.floor(restTime / 60)).padStart(2, "0")}:${String(restTime % 60).padStart(2,"0")}</p>`;
     }
+
+    if(accessibleCheck.checked == true){
+        if(document.getElementById("timeDisplay").innerHTML == "<p>00:00:03</p>" || document.getElementById("timeDisplay").innerHTML == "<p>00:00:02</p>" || document.getElementById("timeDisplay").innerHTML == "<p>00:00:01</p>"){
+            console.log('hello');
+            //change this to have a function that animates the color change.
+        }
+    }
+
 }
