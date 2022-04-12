@@ -6,8 +6,6 @@ body {
     background-color: var(--main-background-color);
     margin: 0px;
     transition: 500ms;
-    justify-content: center;
-    align-items: center;
 }
 
 body.seasonal{
