@@ -9,6 +9,20 @@ body{
     justify-content: center;
 }
 
+.container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: transparent;
+}
+
+timer{
+    padding: 30px;
+}
+
+div{
+    margin: 10px 20px;
+}
 
 p{
     margin: 0
