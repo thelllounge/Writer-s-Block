@@ -3,7 +3,8 @@ let sprintSelect = document.getElementById("select");
 let restSelect = document.getElementById("rest");
 let startButton = document.getElementById("startButton");
 let resetButton = document.getElementById("resetButton");
-let accessibleCheck = document.getElementById("accessibleFlashing")
+let accessibleCheck = document.getElementById("accessibleFlashing");
+let timerDiv = document.getElementById("timer");
 
 // let timerDisplay = getElementById("timeDisplay").innerHTML;
 
@@ -72,6 +73,32 @@ function resetEverything(){
     document.getElementById("timeDisplay").innerHTML = "<p>Please select a sprint and a rest time.</p>"
 }
 
+function beepWarning(){
+    if(document.getElementById("timeDisplay").innerHTML == "<p>00:00:03</p>" || document.getElementById("timeDisplay").innerHTML == "<p>00:00:02</p>" || document.getElementById("timeDisplay").innerHTML == "<p>00:00:01</p>"){
+        beep.play();
+    }else if(document.getElementById("timeDisplay").innerHTML == "<p>00:00:00</p>" && sprinting){
+        restAlert.play();
+    }else if(document.getElementById("timeDisplay").innerHTML == "<p>00:00:00</p>" && !sprinting){
+        sprintAlert.play();
+    }
+}
+
+function flashWarning(){
+    if(accessibleCheck.checked == true){
+        if(document.getElementById("timeDisplay").innerHTML == "<p>00:00:03</p>"){
+            timerDiv.classList.add("three");
+        }else if(document.getElementById("timeDisplay").innerHTML == "<p>00:00:02</p>"){
+            timerDiv.classList.remove("three");
+            timerDiv.classList.add("two");
+        }else if(document.getElementById("timeDisplay").innerHTML == "<p>00:00:01</p>"){
+            timerDiv.classList.remove("two");
+            timerDiv.classList.add("one");
+        }else if(document.getElementById("timeDisplay").innerHTML == "<p>00:00:00</p>"){
+            timerDiv.classList.remove("one");
+        }
+    }
+}
+
 function countDownSprint(){
     sprintTime--
     restTime--
@@ -82,14 +109,7 @@ function countDownSprint(){
         document.getElementById("timeDisplay").innerHTML = `<p>00:${String(Math.floor(restTime / 60)).padStart(2, "0")}:${String(restTime % 60).padStart(2,"0")}</p>`;
     }
 
-    if(document.getElementById("timeDisplay").innerHTML == "<p>00:00:03</p>" || document.getElementById("timeDisplay").innerHTML == "<p>00:00:02</p>" || document.getElementById("timeDisplay").innerHTML == "<p>00:00:01</p>"){
-        beep.play();
-    }else if(document.getElementById("timeDisplay").innerHTML == "<p>00:00:00</p>" && sprinting){
-        restAlert.play();
-    }else if(document.getElementById("timeDisplay").innerHTML == "<p>00:00:00</p>" && !sprinting){
-        sprintAlert.play();
-    }
-
+    beepWarning();
 
     if(restTime == -1 && sprinting == false){
         sprinting = true;
@@ -101,11 +121,5 @@ function countDownSprint(){
         document.getElementById("timeDisplay").innerHTML = `<p>00:${String(Math.floor(restTime / 60)).padStart(2, "0")}:${String(restTime % 60).padStart(2,"0")}</p>`;
     }
 
-    if(accessibleCheck.checked == true){
-        if(document.getElementById("timeDisplay").innerHTML == "<p>00:00:03</p>" || document.getElementById("timeDisplay").innerHTML == "<p>00:00:02</p>" || document.getElementById("timeDisplay").innerHTML == "<p>00:00:01</p>"){
-            console.log('hello');
-            //change this to have a function that animates the color change.
-        }
-    }
-
+    flashWarning();
 }
