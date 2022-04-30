@@ -9,11 +9,13 @@ body {
 }
 
 body.seasonal{
-    --main-background-color: rgb(43, 0, 71);
-    --main-text-color: rgb(128, 164, 170);
+    /* --main-background-color: linear-gradient(90deg, rgba(14,0,255,1) 0%, rgba(0,0,0,1) 50%, rgba(255,0,0,1) 100%); */
+    --main-text-color: rgb(251, 255, 0);
     --main-div-color: rgb(0, 0, 0);
-    --main-accent-color: rgb(178, 121, 253);
+    --main-accent-color: rgb(9, 255, 0);
     transition: 500ms;
+    background: rgb(14,0,255);
+    background: linear-gradient(90deg, rgba(14,0,255,1) 0%, rgba(0,0,0,1) 50%, rgba(255,0,0,1) 100%);
 }
 
 h1, h4 {
