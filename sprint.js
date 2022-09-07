@@ -9,7 +9,7 @@ let timerDiv = document.getElementById("timer");
 // let timerDisplay = getElementById("timeDisplay").innerHTML;
 
 let beep = new Audio("BeepShort.wav");
-let restAlert = new Audio("rest Alert.wav");
+let restAlert = new Audio("Rest Alert.wav");
 let sprintAlert = new Audio("SprintAlert.wav");
 
 //Adding functions to actions

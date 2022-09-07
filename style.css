@@ -34,14 +34,25 @@ label {
 
 div {
     background-color: var(--main-div-color);
-    border-radius: 20px;
+    /* border-radius: 20px; */
     margin: 0% 10%;
+    border: inset
 }
 
 .intro, .prompt, .aboutMeKinda{
     align-self: center;
     text-align: center;
     padding: 10px 10%;
+}
+
+#prompt{
+    border: none;
+}
+
+header{
+    border: inset;
+    background-color: var(--main-div-color);
+    margin-bottom: 20px;
 }
 
 p {
