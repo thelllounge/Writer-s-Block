@@ -17,6 +17,10 @@ body{
     background: transparent;
 }
 
+.noBorder{
+    border: none;
+}
+
 timer{
     padding: 30px;
 }

@@ -66,9 +66,9 @@ p {
 button {
     padding: 15px 15px;
     background-color: var(--main-accent-color);
-    border-radius: 10px;
     font-family: 'Orbitron', sans-serif;
     margin: 20px;
+    border: outset;
 }
 
 .information {

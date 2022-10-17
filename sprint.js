@@ -51,8 +51,11 @@ function startPauseTimer(){
     }else{
         if(!timerCountdown){
             timerCountdown = setInterval(countDownSprint, 1000);
+            //for some reason pausing while in a rest always turns sprinting to true. This is a problem. Must solve
+            if(startButton.innerHTML == "Let's Start!"){
+                sprinting = true;
+            }
             startButton.innerHTML = "Pause";
-            sprinting = true;
         }else{
             clearInterval(timerCountdown);
             timerCountdown = null;
@@ -61,16 +64,25 @@ function startPauseTimer(){
     }
 
     if(startButton.innerHTML != "Start"){
-        sprintAlert.play();
+        if(sprinting == true){
+            sprintAlert.play();
+        }else{
+            restAlert.play();
+        }
     }
 }
 
 function resetEverything(){
+    clearInterval(timerCountdown);
+    timerCountdown = null;
+    startButton.innerHTML = "Start";
     sprintSelect.value = "Select a sprint time"
     restSelect.value = "Select a rest time"
     sprintTime = 0;
     restTime = 0;
     document.getElementById("timeDisplay").innerHTML = "<p>Please select a sprint and a rest time.</p>"
+    document.getElementById("sprintingOrResting").innerHTML = '';
+    document.getElementById("")
 }
 
 function beepWarning(){
@@ -100,13 +112,14 @@ function flashWarning(){
 }
 
 function countDownSprint(){
-    sprintTime--
-    restTime--
-
     if(sprinting == true){
+        sprintTime--
         document.getElementById("timeDisplay").innerHTML = `<p>00:${String(Math.floor(sprintTime / 60)).padStart(2, "0")}:${String(sprintTime % 60).padStart(2,"0")}</p>`;
+        document.getElementById("sprintingOrResting").innerHTML = `<p>Sprinting</p>`;
     }else{
+        restTime--
         document.getElementById("timeDisplay").innerHTML = `<p>00:${String(Math.floor(restTime / 60)).padStart(2, "0")}:${String(restTime % 60).padStart(2,"0")}</p>`;
+        document.getElementById("sprintingOrResting").innerHTML = `<p>Resting</p>`;
     }
 
     beepWarning();
@@ -115,10 +128,12 @@ function countDownSprint(){
         sprinting = true;
         sprintTime = Number(sprintSelect.value * 60);
         document.getElementById("timeDisplay").innerHTML = `<p>00:${String(Math.floor(sprintTime / 60)).padStart(2, "0")}:${String(sprintTime % 60).padStart(2,"0")}</p>`;
+        document.getElementById("sprintingOrResting").innerHTML = `<p>Sprinting</p>`;
     }else if(sprintTime == -1 && sprinting == true){
         sprinting = false;
         restTime = Number(restSelect.value * 60);
         document.getElementById("timeDisplay").innerHTML = `<p>00:${String(Math.floor(restTime / 60)).padStart(2, "0")}:${String(restTime % 60).padStart(2,"0")}</p>`;
+        document.getElementById("sprintingOrResting").innerHTML = `<p>Resting</p>`;
     }
 
     flashWarning();
